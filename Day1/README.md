@@ -693,3 +693,35 @@ oc project
 oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
 oc get deploy,rs,po
 ```
+
+Expected output
+<pre>
+jegan@tektutor.org $ oc project
+Using project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".
+jegan@tektutor.org $ oc get deploy,rs,po
+No resources found in jegan namespace.
+jegan@tektutor.org $ oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
+deployment.apps/nginx created
+jegan@tektutor.org $ oc get deploy,rs,po
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   0/3     3            0           5s
+
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-66c775969   3         3         0       5s
+
+NAME                        READY   STATUS              RESTARTS   AGE
+pod/nginx-66c775969-j7t8w   0/1     ContainerCreating   0          5s
+pod/nginx-66c775969-knrhv   0/1     ContainerCreating   0          5s
+pod/nginx-66c775969-xp48p   0/1     ContainerCreating   0          5s
+jegan@tektutor.org $ oc get po -w       
+NAME                    READY   STATUS              RESTARTS   AGE
+nginx-66c775969-j7t8w   1/1     Running             0          16s
+nginx-66c775969-knrhv   0/1     ContainerCreating   0          16s
+nginx-66c775969-xp48p   1/1     Running             0          16s
+nginx-66c775969-knrhv   1/1     Running             0          17s
+^C%                                                                                                                                    jegan@tektutor.org $ oc get po   
+NAME                    READY   STATUS    RESTARTS   AGE
+nginx-66c775969-j7t8w   1/1     Running   0          23s
+nginx-66c775969-knrhv   1/1     Running   0          23s
+nginx-66c775969-xp48p   1/1     Running   0          23s  
+</pre>
