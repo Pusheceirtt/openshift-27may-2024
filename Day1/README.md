@@ -477,3 +477,8 @@ Using project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".
 oc project default
 oc project jegan
 ```
+
+## Lab - Finding the current active project
+```
+oc project
+```
