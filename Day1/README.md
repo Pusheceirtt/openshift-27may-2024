@@ -22,7 +22,15 @@
   - AMD ( AMD-V - Virtualization support )
   - Intel ( VT-X - Virtualiation support )
 - Apple Silicon Processor - Based on ARM Processor ( M1/M2 - supports virtualization )
-
+- Many OS can be actively running at the same time on the same laptop/desktop/workstation/server
+- Examples
+  - VMWare
+    - Workstation - Type 2 Hypervisor ( Linux/Windows )
+    - Fusion - Type 2 Hypervisor ( Mac OS-X )
+    - vSphere/vCenter - Type 1 Hypervisor a.k.a Bare-metal Hypervisors 
+  - Oracle Virtualbox - Type 2 Hypervisor ( Linux/Mac/Windows - Free )
+  - Parallels - Type 2 Hypervisor ( Mac OS-X )
+  
 ## Processor Packaging
 - Processors comes in 2 packages
 - Single Chip Module (SCM) - One Processor per IC
@@ -35,7 +43,19 @@
 ## Physical vs Logical/Virtual Cores
 - each modern Physical CPUs are capable of running multiple threads parallely 
 - Hyperthreading - each physical CPU supports 2/4/8 virtual cores
-  
+
+## To support 1000 OS, how many physical machines are required in the absence of Virtualization Technology
+- 1000 Physical machines are required
+- data-center maintenance
+- power consumption
+- real-estate cost - lease/rent
+- Uninterupped power supply (UPS/INverter)
+- Air Conditioning
+- Sound proofing
+
+## To support 1000 OS, how many least number of physical machines are required with Virtualization support?
+- 
+
 ## Container Overview
 
 ## What is Container Runtime?
