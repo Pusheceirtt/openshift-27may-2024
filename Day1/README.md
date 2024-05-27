@@ -692,6 +692,8 @@ No resources found in jegan namespace.
 oc project
 oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
 oc get deploy,rs,po
+oc get po -w
+oc get po
 ```
 
 Expected output
