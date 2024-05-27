@@ -186,7 +186,75 @@
     - it is an enterprise software that requires paid license
 
 ## Red Hat OpenShift - Container Orchestration Platform High-Level Architecture
+- Openshift cluster has 2 types of nodes
+  1. Master
+  2. Worker
+- Control Plane Components runs only in the master node
+- Worker Nodes - this is where user application will be deployed by default
+- It is also possible to configure the master nodes to allow deploying user applications apart from control plane components
+- client tools
+  - oc (openshift client tool)
+  - kubectl ( kubernetes client tool )
 
+
+## What are the Control Plane Compenents in OpenShift/Kubernetes
+1. API Server
+2. etcd key-value datastore/database
+3. scheduler
+4. controller managers ( a collection of many controllers )
+
+#### API Server
+- this is a collection REST APIs for every features supported by OpenShift
+- stores the entire cluster status, user application status,nodes status, etc into the etcd database
+- API Server is the only components normally has access to etcd databases
+- all Openshift components interact with API Server by making a REST API call
+- API Server responds to REST calls via events
+- Whenever API servers makes any change in etcd database, it will be followed by a broadcasting event about the change it made in the etcd db
+- oc/kubectl client tools will also talk to API server only
+  
+#### etcd database
+- key/value database
+- 
+#### Scheduler
+
+#### Controller Managers
+- it is a collection of many controllers
+- controllers are applications that run continuously in an infinite loop waiting for events
+  - new deployment created
+  - new Pod created
+  - Pod deleted
+  - deployment deleted
+  - Deployment scaled up
+  - Deployment scaled down
+- every Resource in Openshift is managed by one Controller
+- Example
+  - Deployment is a resource in Kubernetes/Openshift that represents an application deployment
+  - Deployment Controller is the controller that monitors, manages, repairs the Deployment resource
+  - ReplicaSet controller monitors, manages and repairs ReplicaSet resource
+  - Endpoint Controller
+  - Job Controller
+  - CronJob Controller
+  - DaemonSet Controller
+  - StatefulSet Controller
+  - ReplicationController
+
+## What is a Pod?
+- a collection of many related containers
+- inside each container one application or component will be running
+- multiples are hosted/running
+- it is record/yaml definition stored in etcd database
+- is the smallest unit that can be deployed into Openshift/Kubernetes
+- For instance
+  - If you deploy Jenkins, jenkins will run inside a container which is part of a Pod
+- Unlike container, where each container gets IP address(es), in Kubernetes/Openshift IP address(es) are assigned on the Pod level not on the container level
+- In other words, the containers running with the same Pod shares the same IP address and ports
+  
+## OpenShift resources
+- Deployment
+- ReplicaSet
+- Pod
+- all the above are resources (yaml definitions) records stored in etcd database
+- 
 
 ## Lab - Find the Openshift version details
 ```
@@ -231,7 +299,7 @@ oc get nodes -o wide
 
 Expected output
 <pre>
- jegan@tektutor.org $ oc get nodes -o wide
+jegan@tektutor.org $ oc get nodes -o wide
 NAME                              STATUS   ROLES                         AGE    VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
 master-1.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992   192.168.122.35    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
 master-2.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992   192.168.122.112   <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
@@ -239,3 +307,4 @@ master-3.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   
 worker-1.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992   192.168.122.102   <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
 worker-2.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992   192.168.122.38    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9  
 </pre>
+
