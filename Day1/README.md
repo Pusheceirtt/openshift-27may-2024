@@ -148,7 +148,6 @@
 - while server runs in kernel space ( as root user )
 - end-users use only the client software to interact with the Docker server
 - Docker server runs in the background as Service(daemon)
-- when we create containers, thoug
 ## Container Orchestration Platform Overview
 - High-Level Features
   - provides a platform where you could your applications and make them Highly Available (HA)
@@ -186,4 +185,19 @@
     - is developed on top of Google Kubernetes
     - it is an enterprise software that requires paid license
 
-## Container Orchestration Platform High-Level Architecture
+## Red Hat OpenShift - Container Orchestration Platform High-Level Architecture
+
+
+## Lab - Find the Openshift version details
+```
+oc version
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ oc version
+Client Version: 4.15.12
+Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+Server Version: 4.15.12
+Kubernetes Version: v1.28.9+2f7b992  
+</pre>
