@@ -106,12 +106,68 @@
 - their own OS Kernel
 
 ## What is Container Runtime?
-- it is a low-level software 
+- it is a low-level software
+- it is not so user-friendly
+- it manages container images and containers
+- normally no end-users use the container runtimes directly
+- Examples
+  - runC
+  - CRI-O 
 
 ## What is Container Engine?
+- is a high-level software
+- it offers user-friendly commands to manage container images and containers
+- internally they depend on Container Runtimes to manage images and containers
+- end-users like us, normally will use Container Engines as they are very user-friendly
+- Examples
+  - Docker is a Container Engine that depends on containerd which internally depends on runC container Runtime
+  - Podman is a Container Engine that depends on CRI-O container Runtime
+
+## Docker Overview
+- is a container engine
+- developed in Go language
+- developed by a company called Docker Inc
+- Docker comes in 2 flavours
+  1. Community Edition - Docker CE ( Free )
+  2. Enterprise Edition - Docker EE ( Paid )
+
+## Podman Overview
+- is opensource but primarily maintained by Red Hat
+- CoreOS was the company that had 2 products
+  - CoreOS - Operating system optimized for Container Orchestration Platforms
+  - rkt - pronounced as rocket, which is a container runtime software
+- Red Hat acquired CoreOS, they kind replaced rkt with CRI-o Container Runtime
+- Red Hat CoreOS is now called Red Hat Enterprise Core OS (RHCOS)
+- RHCOS is the Operating System used in Red Hat Openshift 4.x onwards
+- Podman is opensource container engine maintained by Red Hat
+- it is an alternate product for Docker
 
 ## Container High Level Architecture
 
 ## Container Orchestration Platform Overview
+- High-Level Features
+  - provides a platform where you could your applications and make them Highly Available (HA)
+  - it has built-in monitoring features to check the health of your application and repair them on need basis
+    - readiness check ( it is live and ready to server user request )
+    - liveliness check ( the application is running but may not ready to support user requests )
+  - scale up/down
+    - adding more instances of your application when the user-traffic increases
+    - removing idle application instances when the user-traffic reduces
+  - rolling update
+    - upgrade your already live application from one version to other without any downtime
+  - rollback
+    - downgrade your already latest live application from latest version to older versions without any downtime
+  - expose your container applications workloads to external world via Services ( Service discovery )
+  - Services 2 types
+    - Internal ( accessible within the orchestraion platform only ) and
+    - External ( accessible outside the orchestrtion platform as well )
+- can manage the application life cycle within the Orchestration platform
+- Examples
+  - Docker SWARM
+    - a light-weight
+    - free
+    - Docker's 
+  - Google Kubernetes
+  - Red Hat OpenShift
 
 ## Container Orchestration Platform High-Level Architecture
