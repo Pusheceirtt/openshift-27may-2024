@@ -764,3 +764,18 @@ curl http://localhost:9080
 
 Expected output
 ![port forwarding](port-forwading.png)
+
+
+## Lab - Creating an internal service for nginx deployment
+```
+oc get svc
+oc get deploy,rs,po
+oc expose deploy/nginx --type=ClusterIP --port=8080
+oc get services
+oc get service
+oc get svc
+oc describe svc/nginx
+```
+
+Expected output
+![clusterip](clusterip-svc.png)
