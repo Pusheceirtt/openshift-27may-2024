@@ -377,3 +377,97 @@ to build a new example application in Ruby. Or use kubectl to deploy a simple Ku
 
     kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.43 -- /agnhost serve-hostname  
 </pre>
+
+
+## Lab - Listing all projects
+```
+oc projects
+oc get projects
+oc get project
+oc get namespaces
+oc get namespace
+oc get ns
+```
+
+Expected output
+<pre>
+jegan@tektutor.org  ~  oc projects
+You have access to the following projects and can switch between them with ' project <projectname>':
+
+    default
+  * jegan
+    knative-eventing
+    knative-serving
+    knative-serving-ingress
+    kube-node-lease
+    kube-public
+    kube-system
+    openshift
+    openshift-apiserver
+    openshift-apiserver-operator
+    openshift-authentication
+    openshift-authentication-operator
+    openshift-cloud-controller-manager
+    openshift-cloud-controller-manager-operator
+    openshift-cloud-credential-operator
+    openshift-cloud-network-config-controller
+    openshift-cloud-platform-infra
+    openshift-cluster-csi-drivers
+    openshift-cluster-machine-approver
+    openshift-cluster-node-tuning-operator
+    openshift-cluster-samples-operator
+    openshift-cluster-storage-operator
+    openshift-cluster-version
+    openshift-config
+    openshift-config-managed
+    openshift-config-operator
+    openshift-console
+    openshift-console-operator
+    openshift-console-user-settings
+    openshift-controller-manager
+    openshift-controller-manager-operator
+    openshift-dns
+    openshift-dns-operator
+    openshift-etcd
+    openshift-etcd-operator
+    openshift-host-network
+    openshift-image-registry
+    openshift-infra
+    openshift-ingress
+    openshift-ingress-canary
+    openshift-ingress-operator
+    openshift-insights
+    openshift-kni-infra
+    openshift-kube-apiserver
+    openshift-kube-apiserver-operator
+    openshift-kube-controller-manager
+    openshift-kube-controller-manager-operator
+    openshift-kube-scheduler
+    openshift-kube-scheduler-operator
+    openshift-kube-storage-version-migrator
+    openshift-kube-storage-version-migrator-operator
+    openshift-machine-api
+    openshift-machine-config-operator
+    openshift-marketplace
+    openshift-monitoring
+    openshift-multus
+    openshift-network-diagnostics
+    openshift-network-node-identity
+    openshift-network-operator
+    openshift-node
+    openshift-nutanix-infra
+    openshift-oauth-apiserver
+    openshift-openstack-infra
+    openshift-operator-lifecycle-manager
+    openshift-operators
+    openshift-ovirt-infra
+    openshift-ovn-kubernetes
+    openshift-route-controller-manager
+    openshift-serverless
+    openshift-service-ca
+    openshift-service-ca-operator
+    openshift-user-workload-monitoring
+    openshift-vsphere-infra
+
+Using project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".  
+</pre>
