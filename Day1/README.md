@@ -359,6 +359,14 @@ docker inspect {{.NetworkSettings.IPAddress}} nginx
 
 ## Lab - Creating a project in Openshift
 
+### Things to note
+```
+- Project is created for every project team by the Administrators
+- Inside a project multiple applications can be deployed
+- project access can be restricted to a users
+- only those team members who are part of a team can access a specific project and resources under the project.
+- projects helps seggregate one team's deployments from others
+```
 In the below command replace 'jegan' with your name.
 ```
 oc new-project jegan
