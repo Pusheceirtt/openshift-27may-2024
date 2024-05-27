@@ -471,3 +471,9 @@ You have access to the following projects and can switch between them with ' pro
 
 Using project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".  
 </pre>
+
+## Lab - Switching between projects
+```
+oc project default
+oc project jegan
+```
