@@ -344,3 +344,15 @@ CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS
                     "IPAMConfig": null,
                     "IPAddress": "172.17.0.2",  
 </pre>
+
+## Lab - Creating a Pod in docker
+In case of a Pod, only one container in the group of containers (Pod) has a network interface.
+The other containers within the Pod shares the infra/secret/pause container's network, hence they all share the same IP address.
+
+```
+docker run -d --name nginx --network=container:nginx_pause gcr.io/google_containers/pause:latest
+docker run -d --name nginx --network=container:nginx_pause nginx:latest
+docker ps
+docker inspect {{.NetworkSettings.IPAddress}} nginx_pause
+docker inspect {{.NetworkSettings.IPAddress}} nginx
+```
