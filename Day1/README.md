@@ -201,3 +201,19 @@ Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 Server Version: 4.15.12
 Kubernetes Version: v1.28.9+2f7b992  
 </pre>
+
+## Lab - Listing the openshift nodes in the cluster
+```
+oc get nodes
+```
+
+Expected output
+<pre>
+ jegan@tektutor.org  ~  oc get nodes
+NAME                              STATUS   ROLES                         AGE    VERSION
+master-1.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
+master-2.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
+master-3.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
+worker-1.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992
+worker-2.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992  
+</pre>
