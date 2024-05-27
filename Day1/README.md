@@ -685,3 +685,11 @@ deployment.apps "nginx" deleted
 jegan@tektutor.org $ oc get deploy,rs,po
 No resources found in jegan namespace.  
 </pre>
+
+
+## Lab - Creating nginx with bitnami image
+```
+oc project
+oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
+oc get deploy,rs,po
+```
