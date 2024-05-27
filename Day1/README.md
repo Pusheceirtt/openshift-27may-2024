@@ -492,6 +492,8 @@ oc project
 ```
 
 ## Lab - Deleting a project ( kindly delete only projects you created )
+Deleting a project, automatically deletes all the resources under the project.
+
 ```
 oc get projects | grep jegan
 oc delete project jegan
