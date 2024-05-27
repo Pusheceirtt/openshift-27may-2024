@@ -615,7 +615,7 @@ NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (66s ago)   2m15s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (26s ago)   2m15s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (62s ago)   2m15s
- jegan@tektutor.org  ~  oc logs nginx-56fcf95486-ffj6q
+ jegan@tektutor.org $ oc logs nginx-56fcf95486-ffj6q
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
