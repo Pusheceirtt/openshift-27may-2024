@@ -30,7 +30,15 @@
     - vSphere/vCenter - Type 1 Hypervisor a.k.a Bare-metal Hypervisors 
   - Oracle Virtualbox - Type 2 Hypervisor ( Linux/Mac/Windows - Free )
   - Parallels - Type 2 Hypervisor ( Mac OS-X )
-  
+  - each OS runs in a separate Virtual Machine (VM)
+  - each Virtual Machine requires dedicated hardware resources
+    - Virtual CPU Cores
+    - RAM - Actual
+    - Storage - Actual
+    - Network (Virtual - Software defined Network cards )
+    - Graphics Card ( Virtual - Software defined Network cards )
+  - Because every Virtual Machines requires dedicated hardware resources, this type of Virtualization is called Heavy-weight Virtualization
+    
 ## Processor Packaging
 - Processors comes in 2 packages
 - Single Chip Module (SCM) - One Processor per IC
@@ -47,6 +55,7 @@
 ## To support 1000 OS, how many physical machines are required in the absence of Virtualization Technology
 - 1000 Physical machines are required
 - data-center maintenance
+- cost of each server
 - power consumption
 - real-estate cost - lease/rent
 - Uninterupped power supply (UPS/INverter)
@@ -54,8 +63,16 @@
 - Sound proofing
 
 ## To support 1000 OS, how many least number of physical machines are required with Virtualization support?
-- 
-
+- 1 Server ie enough technically
+- 8 Socket Server Motherboard
+- Assume in each each Processor Socket we have installed a MCM packaged Processors
+  - MCM IC with 4 Processors
+  - Each Processor supports 128 Physical CPU Cores
+  - each Socket - how many cores - 512 Physical CPU cores
+  - In 8 Socket - how many cores - 512 x 8 = 4096 Physical CPU Cores
+  - In 8 Sockets - how many virtual cores - 4096 x 2 = 8192 virtual/logical cores
+- RAM/Storage
+  
 ## Container Overview
 
 ## What is Container Runtime?
