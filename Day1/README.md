@@ -671,3 +671,17 @@ Events:
   ----    ------             ----  ----                   -------
   Normal  ScalingReplicaSet  11m   deployment-controller  Scaled up replica set nginx-56fcf95486 to 3
  </pre>
+
+## Lab - Deleting a deployment
+```
+oc delete deploy/nginx
+oc get deploy,rs,po
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ oc delete deploy/nginx
+deployment.apps "nginx" deleted
+jegan@tektutor.org $ oc get deploy,rs,po
+No resources found in jegan namespace.  
+</pre>
