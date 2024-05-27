@@ -538,74 +538,74 @@ oc get po
 
 Expected output
 <pre>
- jegan@tektutor.org  ~  oc project
+ jegan@tektutor.org $ oc project
 Using project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".
- jegan@tektutor.org  ~  oc create deployment nginx --image=nginx:latest --replicas=3
+ jegan@tektutor.org $ oc create deployment nginx --image=nginx:latest --replicas=3
 deployment.apps/nginx created
- jegan@tektutor.org  ~  oc get deployments
+ jegan@tektutor.org $ oc get deployments
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   0/3     3            0           6s
- jegan@tektutor.org  ~  oc get deployment 
+ jegan@tektutor.org $ oc get deployment 
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   0/3     3            0           7s
- jegan@tektutor.org  ~  oc get deploy
+ jegan@tektutor.org $ oc get deploy
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   0/3     3            0           10s
- jegan@tektutor.org  ~  oc get replicasets
+ jegan@tektutor.org $ oc get replicasets
 NAME               DESIRED   CURRENT   READY   AGE
 nginx-56fcf95486   3         3         0       23s
- jegan@tektutor.org  ~  oc get replicaset 
+ jegan@tektutor.org $ oc get replicaset 
 NAME               DESIRED   CURRENT   READY   AGE
 nginx-56fcf95486   3         3         0       24s
- jegan@tektutor.org  ~  oc get rs        
+ jegan@tektutor.org $ oc get rs        
 NAME               DESIRED   CURRENT   READY   AGE
 nginx-56fcf95486   3         3         0       26s
- jegan@tektutor.org  ~  oc get pods
+ jegan@tektutor.org $ oc get pods
 NAME                     READY   STATUS             RESTARTS     AGE
 nginx-56fcf95486-8mx9j   0/1     CrashLoopBackOff   1 (8s ago)   29s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   1 (9s ago)   29s
 nginx-56fcf95486-ffj6q   0/1     CrashLoopBackOff   1 (8s ago)   29s
- jegan@tektutor.org  ~  oc get pod 
+ jegan@tektutor.org $ oc get pod 
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     CrashLoopBackOff   1 (9s ago)    30s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   1 (10s ago)   30s
 nginx-56fcf95486-ffj6q   0/1     CrashLoopBackOff   1 (9s ago)    30s
- jegan@tektutor.org  ~  oc get po 
+ jegan@tektutor.org $ oc get po 
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     CrashLoopBackOff   1 (11s ago)   32s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   1 (12s ago)   32s
 nginx-56fcf95486-ffj6q   0/1     CrashLoopBackOff   1 (11s ago)   32s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     CrashLoopBackOff   3 (39s ago)   108s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   3 (43s ago)   108s
 nginx-56fcf95486-ffj6q   0/1     CrashLoopBackOff   3 (35s ago)   108s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (60s ago)   2m9s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (20s ago)   2m9s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (56s ago)   2m9s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (63s ago)   2m12s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (23s ago)   2m12s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (59s ago)   2m12s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (64s ago)   2m13s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (24s ago)   2m13s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (60s ago)   2m13s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (65s ago)   2m14s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (25s ago)   2m14s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (61s ago)   2m14s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (65s ago)   2m14s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (25s ago)   2m14s
 nginx-56fcf95486-ffj6q   0/1     Error              4 (61s ago)   2m14s
- jegan@tektutor.org  ~  oc get po
+ jegan@tektutor.org $ oc get po
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-56fcf95486-8mx9j   0/1     Error              4 (66s ago)   2m15s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   4 (26s ago)   2m15s
@@ -625,7 +625,7 @@ nginx: [warn] the "user" directive makes sense only if the master process runs w
 nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
  jegan@tektutor.org  ~  oc whoami
 system:admin
- jegan@tektutor.org  ~  oc get po                     
+ jegan@tektutor.org $ oc get po                     
 NAME                     READY   STATUS             RESTARTS        AGE
 nginx-56fcf95486-8mx9j   0/1     CrashLoopBackOff   6 (2m59s ago)   9m19s
 nginx-56fcf95486-94vsp   0/1     CrashLoopBackOff   6 (3m10s ago)   9m19s
@@ -633,7 +633,7 @@ nginx-56fcf95486-ffj6q   0/1     CrashLoopBackOff   6 (2m55s ago)   9m19s
  jegan@tektutor.org  ~  oc get deployments
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   0/3     3            0           11m
- jegan@tektutor.org  ~  oc describe deploy/nginx
+ jegan@tektutor.org $ oc describe deploy/nginx
 Name:                   nginx
 Namespace:              jegan
 CreationTimestamp:      Mon, 27 May 2024 16:21:38 +0530
