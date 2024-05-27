@@ -356,3 +356,24 @@ docker ps
 docker inspect {{.NetworkSettings.IPAddress}} nginx_pause
 docker inspect {{.NetworkSettings.IPAddress}} nginx
 ```
+
+## Lab - Creating a project in Openshift
+
+In the below command replace 'jegan' with your name.
+```
+oc new-project jegan
+```
+
+Expected output
+<pre>
+ jegan@tektutor.org $ oc new-project jegan   
+Already on project "jegan" on server "https://api.ocp4.tektutor.org.labs:6443".
+
+You can add applications to this project with the 'new-app' command. For example, try:
+
+    oc new-app rails-postgresql-example
+
+to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.43 -- /agnhost serve-hostname  
+</pre>
