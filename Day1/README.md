@@ -209,11 +209,33 @@ oc get nodes
 
 Expected output
 <pre>
- jegan@tektutor.org  ~  oc get nodes
+jegan@tektutor.org $ oc get nodes
 NAME                              STATUS   ROLES                         AGE    VERSION
 master-1.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
 master-2.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
 master-3.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992
 worker-1.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992
 worker-2.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992  
+</pre>
+
+## Lab - Finding the IP address of nodes, finding the OS installed on the nodes
+You can use the wide mode to find
+- Ip address of the nodes
+- OS installed on the nodes
+- CRI-O Container Runtime version
+- Node Status
+- Node roles ( master/worker )
+```
+oc get nodes -o wide
+```
+
+Expected output
+<pre>
+ jegan@tektutor.org $ oc get nodes -o wide
+NAME                              STATUS   ROLES                         AGE    VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
+master-1.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992   192.168.122.35    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
+master-2.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992   192.168.122.112   <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
+master-3.ocp4.tektutor.org.labs   Ready    control-plane,master,worker   7d1h   v1.28.9+2f7b992   192.168.122.36    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
+worker-1.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992   192.168.122.102   <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9
+worker-2.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992   192.168.122.38    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9  
 </pre>
