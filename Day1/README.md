@@ -763,4 +763,4 @@ curl http://localhost:9080
 ```
 
 Expected output
-![port forwarding]()
+![port forwarding](port-forwading.png)
