@@ -308,3 +308,39 @@ worker-1.ocp4.tektutor.org.labs   Ready    worker                        7d     
 worker-2.ocp4.tektutor.org.labs   Ready    worker                        7d     v1.28.9+2f7b992   192.168.122.38    <none>        Red Hat Enterprise Linux CoreOS 415.92.202404302054-0 (Plow)   5.14.0-284.64.1.el9_2.x86_64   cri-o://1.28.6-2.rhaos4.15.git77bbb1c.el9  
 </pre>
 
+## Lab - Each container gets an IP address in Docker ( Not in Openshift/Kubernetes )
+```
+docker run -dit --name c1 --hostname c1 ubuntu:16.04 /bin/bash
+docker run -dit --name c2 --hostname c2 ubuntu:16.04 /bin/bash
+docker ps
+docker inspect -f {{.NetworkSettings.IPAddress}} c1
+docker inspect -f {{.NetworkSettings.IPAddress}} c2
+docker inspect c2 | grep IPA
+docker inspect c1 | grep IPA
+```
+
+Expected output
+<pre>
+ jegan@tektutor.org $ docker run -dit --name c1 --hostname c1 ubuntu:16.04 /bin/bash
+21d42db717ee5122e048dfd631521738410cb268941f27048e9229e6d607323a
+ jegan@tektutor.org $ docker run -dit --name c2 --hostname c2 ubuntu:16.04 /bin/bash
+4fc195efc2650c814f995a0cce706c4c6e9ef9a2f8c0d673f3bcaf9e8e27e669
+ jegan@tektutor.org $ docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+4fc195efc265   ubuntu:16.04   "/bin/bash"   2 seconds ago   Up 1 second              c2
+21d42db717ee   ubuntu:16.04   "/bin/bash"   7 seconds ago   Up 6 seconds             c1
+ jegan@tektutor.org $ docker inspect -f {{.NetworkSettings.IPAddress}} c1
+172.17.0.2
+ jegan@tektutor.org $ docker inspect -f {{.NetworkSettings.IPAddress}} c2
+172.17.0.3
+ jegan@tektutor.org $ docker inspect c2 | grep IPA                       
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.3",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.3",
+ jegan@tektutor.org $ docker inspect c1 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",  
+</pre>
