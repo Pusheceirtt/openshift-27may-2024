@@ -750,6 +750,8 @@ nginx-66c775969-xp48p   1/1     Running   0          3m27s   10.131.1.17    work
 
 ## Lab - Port-forwarding for local access - generally used by developers for testing purpose(Not for production)
 In the below command, port 8080 is the port where nginx web server is listening inside the Pod container.  Port 9080 is the port on the local machine. When request comes to the port 9080, it is forwarded on the port 8080 on the Pod container.
+
+The port 9080 can be changed to any port of your choice that is available on the localhost.
 ```
 oc get po
 oc port-forward pod/nginx-66c775969-xp48p 9080:8080
@@ -759,3 +761,6 @@ Accessing the web page from another terminal window
 ```
 curl http://localhost:9080
 ```
+
+Expected output
+![port forwarding]()
