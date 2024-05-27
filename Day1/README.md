@@ -391,7 +391,7 @@ oc get ns
 
 Expected output
 <pre>
-jegan@tektutor.org  ~  oc projects
+jegan@tektutor.org $ oc projects
 You have access to the following projects and can switch between them with ' project <projectname>':
 
     default
