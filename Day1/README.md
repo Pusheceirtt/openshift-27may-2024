@@ -1,5 +1,10 @@
 # Day 1
 
+## First Day - Feedback
+<pre>
+https://survey.zohopublic.com/zs/y4DHH9  
+</pre>
+
 ## What is Boot Loaders
 - it is system utility that get's installed in Master Boot Record(MBR)
 - in our Hard Disk(storage) we have Sector 0, Byte 0 which is called as Master Boot Record(MBR)
