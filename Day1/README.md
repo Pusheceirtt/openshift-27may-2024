@@ -142,8 +142,13 @@
 - Podman is opensource container engine maintained by Red Hat
 - it is an alternate product for Docker
 
-## Container High Level Architecture
-
+## Docker High Level Architecture
+- follows client/server architecture
+- client runs in user-space
+- while server runs in kernel space ( as root user )
+- end-users use only the client software to interact with the Docker server
+- Docker server runs in the background as Service(daemon)
+- when we create containers, thoug
 ## Container Orchestration Platform Overview
 - High-Level Features
   - provides a platform where you could your applications and make them Highly Available (HA)
@@ -166,8 +171,19 @@
   - Docker SWARM
     - a light-weight
     - free
-    - Docker's 
+    - Docker Inc's native Orchestration platform
+    - it supports only Docker containerized application workloads
   - Google Kubernetes
+    - opensource container orchestration platform
+    - it supports managing different containerized application workloads
+      - microservices running in docker container
+      - tomcat running in containerd container
+      - oracle db server running in LXC container
+      - also supports Podman
+    - initial days Kubernetes by default was supported Docker
+  
   - Red Hat OpenShift
+    - is developed on top of Google Kubernetes
+    - it is an enterprise software that requires paid license
 
 ## Container Orchestration Platform High-Level Architecture
