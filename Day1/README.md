@@ -74,8 +74,39 @@
 - RAM/Storage
   
 ## Container Overview
+### What they are not
+- it is not Hypervisor
+- it is not a Virtual Machine
+- containers don't represent Operating System
+
+### What they are
+- it is an application virtualization technology
+- it is a single application process
+- each container represents one application
+- one application may require one to many containers
+- every container has its own network stack
+- every container has its own software defined network(virtual) network card
+- every container get its own file system
+- every container get its own port range ( 0-65535 )
+- they get their own IP address
+- For example
+  - Oracle DB Server can run in a single container
+  - MySQL DB Server can run in a single container
+  - Tomcat Server in a single container
+  - REST/SOAP API can run inside a container
+  - Webservice can run inside a container
+  - one Microservice per container
+  - one Application Server can run in a container
+  - one Web Server can run in a container
+  - one Message Queue Server can run in a container
+  - Apache Kakfa Server can run in a container
+  
+### Containers don't have
+- their own hardware resources
+- their own OS Kernel
 
 ## What is Container Runtime?
+- it is a low-level software 
 
 ## What is Container Engine?
 
