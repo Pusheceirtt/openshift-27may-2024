@@ -733,3 +733,17 @@ nginx-66c775969-j7t8w   1/1     Running   0          23s
 nginx-66c775969-knrhv   1/1     Running   0          23s
 nginx-66c775969-xp48p   1/1     Running   0          23s  
 </pre>
+
+## Lab - Finding the Pod IP address and the node where it is running
+```
+oc get po -o wide
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ oc get po -o wide
+NAME                    READY   STATUS    RESTARTS   AGE     IP             NODE                              NOMINATED NODE   READINESS GATES
+nginx-66c775969-j7t8w   1/1     Running   0          3m27s   10.129.0.250   master-2.ocp4.tektutor.org.labs   <none>           <none>
+nginx-66c775969-knrhv   1/1     Running   0          3m27s   10.128.3.94    worker-2.ocp4.tektutor.org.labs   <none>           <none>
+nginx-66c775969-xp48p   1/1     Running   0          3m27s   10.131.1.17    worker-1.ocp4.tektutor.org.labs   <none>           <none>  
+</pre>
