@@ -490,3 +490,18 @@ oc project jegan
 ```
 oc project
 ```
+
+## Lab - Deleting a project ( kindly delete only projects you created )
+```
+oc get projects | grep jegan
+oc delete project jegan
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ oc get projects | grep jegan
+jegan                                                             Active
+jegan@tektutor.org $ oc delete project jegan
+project.project.openshift.io "jegan" deleted
+  
+</pre>
