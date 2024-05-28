@@ -85,3 +85,8 @@ oc set image deploy/nginx nginx=bitnami/nginx:1.20
 oc get po
 oc describe deploy/nginx
 ```
+
+Rolling back to any specific old revision
+```
+oc rollout deploy/nginx --to-revision=1
+```
