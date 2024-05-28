@@ -88,5 +88,5 @@ oc describe deploy/nginx
 
 Rolling back to any specific old revision
 ```
-oc rollout deploy/nginx --to-revision=1
+oc rollout undo deploy/nginx --to-revision=1
 ```
