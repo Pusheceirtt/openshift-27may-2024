@@ -176,8 +176,8 @@ Expected output
 
 ## Lab - Declaratively creating an internal clusterip service
 ```
-oc expose deploy/nginx -o yaml --dry-run=client
-oc expose deploy/nginx -o yaml --dry-run=client > nginx-clusterip-svc.yml
+oc expose deploy/nginx --type=ClusterIP --port=8080 -o yaml --dry-run=client 
+oc expose deploy/nginx --type=ClusterIP --port=8080 -o yaml --dry-run=client > nginx-clusterip-svc.yml
 oc apply -f nginx-clusterip-svc.yml
 oc get svc
 ```
