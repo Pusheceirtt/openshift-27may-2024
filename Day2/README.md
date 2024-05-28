@@ -261,3 +261,10 @@ oc apply -f nginx-lb-svc.yml
 oc get svc
 ```
 
+Accessing the load balancer service
+```
+curl http://192.168.122.90:8080
+```
+
+Expected output
+![lb](lb-svc.png)
