@@ -160,4 +160,5 @@ Listing the dns service
 oc get svc -n openshift-dns
 ```
 
-
+Expected output
+![dns](dns.png)
