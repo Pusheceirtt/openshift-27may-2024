@@ -68,6 +68,7 @@ oc edit deploy/nginx
 oc get rs,po
 ```
 
+
 Check the status of the rolling update
 ```
 oc rollout status deploy/nginx
@@ -76,4 +77,11 @@ oc rollout status deploy/nginx
 Rolling back to older version ( i.e from 1.19 to 1.18 )
 ```
 oc rollout undo deploy/nginx
+```
+
+Let's upgrade nginx to version 1.20
+```
+oc set image deploy/nginx nginx=bitnami/nginx:1.20
+oc get po
+oc describe deploy/nginx
 ```
