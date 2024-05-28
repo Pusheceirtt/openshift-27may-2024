@@ -287,3 +287,37 @@ oc scale deploy/nginx --replicas=3
 oc get svc
 oc describe svc/hello
 ```
+
+## Lab - Declaratively creating a replicaset without deployment
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day2/declarative-manifest-scripts
+
+oc apply -f nginx-rs.yml
+```
+
+Expected output
+<pre>
+jegan@tektutor.org  ~/openshift-27may-2024/Day2/declarative-manifest-scripts $ oc apply -f nginx-rs.yml 
+replicaset.apps/nginx-rs created
+  
+jegan@tektutor.org  ~/openshift-27may-2024/Day2/declarative-manifest-scripts $ oc get deploy,rs,po
+NAME                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-rs   3         3         2       5s
+
+NAME                 READY   STATUS              RESTARTS   AGE
+pod/nginx-rs-7c9wp   1/1     Running             0          5s
+pod/nginx-rs-ldcjb   0/1     ContainerCreating   0          5s
+pod/nginx-rs-zp7bl   1/1     Running             0          5s
+  
+ jegan@tektutor.org  ~/openshift-27may-2024/Day2/declarative-manifest-scripts $ oc get deploy,rs,po
+NAME                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-rs   3         3         3       15s
+
+NAME                 READY   STATUS    RESTARTS   AGE
+pod/nginx-rs-7c9wp   1/1     Running   0          15s
+pod/nginx-rs-ldcjb   1/1     Running   0          15s
+pod/nginx-rs-zp7bl   1/1     Running   0          15s
+ 
+</pre>
