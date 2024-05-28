@@ -238,3 +238,11 @@ curl http://master-3.ocp4.tektutor.org.labs:30515
 curl http://worker-1.ocp4.tektutor.org.labs:30515
 curl http://worker-2.ocp4.tektutor.org.labs:30515
 ```
+
+Let's create a load balancer service
+```
+oc delete -f nginx-nodeport-svc.yml
+oc apply -f nginx-lb-svc.yml
+oc get svc
+```
+
