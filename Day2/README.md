@@ -47,3 +47,26 @@ Expected output
 <pre>
 
 </pre>
+
+## Lab - Rolling update ( upgrade nginx deploy image version )
+```
+oc project
+oc create deployment nginx --image=bitnami/nginx:1.18 --replicas=3
+oc get rs,po
+```
+
+Now you can edit the nginx deployment and replace the nginx image version from bitnami/nginx:1.18 to bitnami/nginx:1.19 and save it
+```
+oc edit deploy/nginx
+oc get rs,po
+```
+
+Check the status of the rolling update
+```
+oc rollout status deploy/nginx
+```
+
+Rolling back to older version ( i.e from 1.19 to 1.18 )
+```
+oc rollout undo deploy/nginx
+```
