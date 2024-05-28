@@ -195,4 +195,7 @@ oc apply -f nginx-route.yml
 oc get route
 ```
 Expected output
-![service](nginx-svc.png)
+![service](nginx-route1.png)
+![service](nginx-route2.png)
+![service](nginx-route3.png)
+![service](nginx-route4.png)
