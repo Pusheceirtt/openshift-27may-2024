@@ -90,3 +90,30 @@ Rolling back to any specific old revision
 ```
 oc rollout undo deploy/nginx --to-revision=1
 ```
+
+## Info - What happens when we issue the below command
+```
+oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
+```
+
+These are the chain of things that happens when we issue the above command
+```
+- oc client tool will make a REST call to API Server requesting it to create a deployment with name nginx using image bitnami/nginx:latest with 3 Pod instances
+- API Server receives the REST call from oc client tool, it then creates a deployment yaml record in the etcd database
+- API Server then sends a broadcasting event to notify that a new deployment is created
+- Deployment Controller receives the new deployment created event, it then makes a REST call to API Server requesting to create a ReplicaSet for the nginx deployment
+- API Server receives the request from deployment controller, it then creates a ReplicaSet yaml record in the etcd database
+- API Server then sends a broadcasting event to notify that a new replicaset is created
+- ReplicaSet controller receives the new replicaset created event, it then makes REST call to create 3 Pods
+- API Server receives the REST call from ReplicaSet controller, it then creates 3 Pod yaml records in the etcd database
+- API Server then sends a broadcasting event to notify that new Pods are created
+- Scheduler receives the new Pod created events, it then finds a healthy node where specific pods can be deployed
+- Scheduler makes REST call to API server with its scheduling recommendations for each new Pods
+- API Server receives the scheduling recommendation from Scheduler, it retrieves the existing Pod record from etcd database and then it updates the scheduling recommendation it received from SCheduler
+- API Server then sends broadcasting event for each Pod to notify that Pod is scheduler to a specific node
+- kubelet container running that runs on the specific node receives the event from API Server, it then pulls/downloads the container image, it creates container and starts the container.
+- kubelet updates the status of the Pod containers to the API Server via REST calls
+- API Server receives the status from kubelet, it then retrieves the respective record from etcd database it then updates the Pod status
+- kubelet on each node keeps monitoring the container status and it keeps reporting their status to API Server via REST calls
+- API Server udpates the status of the Pod as it receives the status from respective kubelet running on each node
+```
