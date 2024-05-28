@@ -146,3 +146,18 @@ curl http://nginx:8080
 curl http://<service-ip>::<service-port>
 curl http://172.30.159.204:8080
 ```
+
+#### About Service Discovery
+In openshift, one DNS Pod per node is deployed by default as a Daemonset.  When pod container is created by kubelet container agent, it configures the /etc/resolv.conf file to point to the default dns of kubernetes.  The DNS service is normally 172.30.0.10 is configured in all the pods.  The DNS Pod helps in resolving the service name to its respective IP address.
+
+Listing the dns pods in openshift
+```
+oc get po -n openshift-dns
+```
+
+Listing the dns service 
+```
+oc get svc -n openshift-dns
+```
+
+
