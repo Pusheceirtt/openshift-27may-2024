@@ -74,7 +74,7 @@ Check the status of the rolling update
 oc rollout status deploy/nginx
 ```
 
-Rolling back to older version ( i.e from 1.19 to 1.18 )
+Rolling back to previous version ( i.e from 1.19 to 1.18 )
 ```
 oc rollout undo deploy/nginx
 ```
