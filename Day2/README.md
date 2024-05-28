@@ -124,3 +124,10 @@ oc describe deploy/nginx
 oc describe rs/nginx-566b5879cb
 oc describe pod/nginx-6b49c75d9-xsh5t
 ```
+
+## Info - What is OpenShift Operator?
+```
+- collection of many custom resources and custom controllers
+- custom resources can be added by defining Custom Resource Definitions (CRD)
+- to manage the Custom Resources, we also have to provide Custom Controllers
+```
