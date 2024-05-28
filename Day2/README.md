@@ -212,3 +212,29 @@ oc get deploy,svc,route
 
 Expected output
 ![delete](delete.png)
+
+
+## Lab - Declaratively creating nodeport and loadbalancer external services
+```
+oc delete -f nginx-clusterip-svc.yml
+oc expose deploy/nginx --type=NodePort --port=8080 -o yaml --dry-run=client
+oc expose deploy/nginx --type=NodePort --port=8080 -o yaml --dry-run=client > nginx-nodeport-svc.yml
+oc expose deploy/nginx --type=LoadBalancer --port=8080 -o yaml --dry-run=client > nginx-lb-svc.yml
+ls -l
+```
+
+Let's create the nodeport external service
+```
+oc apply -f nginx-nodeport-svc.yml
+oc get svc
+```
+
+Lets access the nodeport service
+```
+oc get nodes -o yaml
+curl http://master-1.ocp4.tektutor.org.labs:30515
+curl http://master-2.ocp4.tektutor.org.labs:30515
+curl http://master-3.ocp4.tektutor.org.labs:30515
+curl http://worker-1.ocp4.tektutor.org.labs:30515
+curl http://worker-2.ocp4.tektutor.org.labs:30515
+```
