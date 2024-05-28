@@ -180,6 +180,7 @@ oc expose deploy/nginx --type=ClusterIP --port=8080 -o yaml --dry-run=client
 oc expose deploy/nginx --type=ClusterIP --port=8080 -o yaml --dry-run=client > nginx-clusterip-svc.yml
 oc apply -f nginx-clusterip-svc.yml
 oc get svc
+oc describe svc/nginx
 ```
 Expected output
 ![service](nginx-svc.png)
