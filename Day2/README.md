@@ -239,6 +239,21 @@ curl http://worker-1.ocp4.tektutor.org.labs:30515
 curl http://worker-2.ocp4.tektutor.org.labs:30515
 ```
 
+## Lab - Creating a load balancer service declaratively
+
+#### Things to note
+```
+- As Load Balancer service is meant for public cloud environments like AWS, Azure, GCP, Digital Ocean, etc.,
+- It won't work out of the box in an on-prem openshift setup like our lab setup.
+- Hence we need to install MetalLB Operator( it is already installed on your lab environment but needs to be configured )
+```
+
+For configuring Metallb operator, you can refer my medium blog
+<pre>
+https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift-onprem-4230944bfa35  
+</pre>
+
+
 Let's create a load balancer service
 ```
 oc delete -f nginx-nodeport-svc.yml
