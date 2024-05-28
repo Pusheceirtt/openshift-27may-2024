@@ -188,6 +188,7 @@ Expected output
 ```
 oc expose svc/nginx -o yaml --dry-run=client
 oc expose svc/nginx -o yaml --dry-run=client > nginx-route.yml
+oc explain route
 oc apply -f nginx-route.yml
 oc get route
 ```
