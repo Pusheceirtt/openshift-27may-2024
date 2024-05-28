@@ -185,6 +185,8 @@ Expected output
 ![service](nginx-svc.png)
 
 ## Lab - Declaratively creating an external route with public url
+
+After generating the nginx-route.yml edit the file and make sure the apiVersion appears as route.openshift.io/v1
 ```
 oc expose svc/nginx -o yaml --dry-run=client
 oc expose svc/nginx -o yaml --dry-run=client > nginx-route.yml
