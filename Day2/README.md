@@ -268,3 +268,22 @@ curl http://192.168.122.90:8080
 
 Expected output
 ![lb](lb-svc.png)
+
+## Lab - Ingress
+Let's create nginx deployment with 3 Pods
+```
+oc delete project/jegan
+oc new-project jegan
+oc new-app --name=nginx bitnami/nginx:latest
+oc scale deploy/nginx --replicas=3
+oc get svc
+oc describe svc/nginx
+```
+
+Let's create hello deployment with 3 Pods
+```
+oc new-app --name=hello tektutor/spring-ms:1.0
+oc scale deploy/nginx --replicas=3
+oc get svc
+oc describe svc/hello
+```
