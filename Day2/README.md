@@ -319,5 +319,22 @@ NAME                 READY   STATUS    RESTARTS   AGE
 pod/nginx-rs-7c9wp   1/1     Running   0          15s
 pod/nginx-rs-ldcjb   1/1     Running   0          15s
 pod/nginx-rs-zp7bl   1/1     Running   0          15s
- 
 </pre>
+
+## Info - What is Persistent Volume (PV) ?
+- any stateful application that stores & retrieves data would require external storage
+- system administrators create disks of different sizes and access mode in Openshift called Persisten volumes
+- Persistent volumes are external storage
+- it could be a NFS storage, AWS EBS, AWS S3 Bucket, Azure Storage, etc
+- it can be provisioned manually or dynamically using StorageClass
+- this is created on the cluster wide scope ( global scope )
+
+## Info - What is Persistent Volume Claim (PVC) ?
+- applications that requires external stores has to request for external storage by defining their requirement in the form of Persistent volume claim (PVC)
+- openshift storage controller will search for matching Persistent volume if it finds a match then it lets' the PVC claim and use the Persistent Volume
+- Persistent Volume is created without a project namespace by developers
+- Persistent volumes claims has to be specify
+  - what is size of storage expected ?
+  - what is access mode expected
+  - From what type of StorageClass(AWS,Azure Storge, NFS Storage )
+  - StorageClass is optional but if mentioned only if openshift finds a PV of that type of StorageClass your application can use that
