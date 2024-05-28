@@ -49,6 +49,13 @@ Expected output
 </pre>
 
 ## Lab - Rolling update ( upgrade nginx deploy image version )
+
+Delete the existing nginx deployment before proceeding
+```
+oc delete deploy/nginx
+```
+
+You can now deploy nginx version 1.18
 ```
 oc project
 oc create deployment nginx --image=bitnami/nginx:1.18 --replicas=3
