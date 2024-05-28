@@ -131,3 +131,18 @@ oc describe pod/nginx-6b49c75d9-xsh5t
 - custom resources can be added by defining Custom Resource Definitions (CRD)
 - to manage the Custom Resources, we also have to provide Custom Controllers
 ```
+
+## Accessing the ClusterIP Service
+
+ClusterIP Service is an internal service, hence we can only access from with the cluster i.e from some pod we can access.
+
+In order access the nginx clusterip internal service, let's create a test pod
+```
+oc create deploy test --image=tektutor/spring-ms:1.0
+oc get po
+oc rsh deploy/test
+curl http://<service-name>:<service-port>
+curl http://nginx:8080
+curl http://<service-ip>::<service-port>
+curl http://172.30.159.204:8080
+```
