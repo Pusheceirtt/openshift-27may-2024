@@ -31,3 +31,19 @@ You have access to 74 projects, the list has been suppressed. You can list all p
 
 Using project "jegan".  
 </pre>
+
+## Lab - Scale up/down nginx deployment
+```
+oc get deploy,po
+oc scale deploy/nginx --replicas=5
+oc get po -w
+oc get po
+oc scale deploy/nginx --replicas=3
+oc get po -w
+oc get po
+```
+
+Expected output
+<pre>
+
+</pre>
