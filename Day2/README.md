@@ -231,7 +231,7 @@ oc get svc
 
 Lets access the nodeport service
 ```
-oc get nodes -o yaml
+oc get nodes
 curl http://master-1.ocp4.tektutor.org.labs:30515
 curl http://master-2.ocp4.tektutor.org.labs:30515
 curl http://master-3.ocp4.tektutor.org.labs:30515
