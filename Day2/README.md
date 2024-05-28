@@ -162,3 +162,34 @@ oc get svc -n openshift-dns
 
 Expected output
 ![dns](dns.png)
+
+## Lab - Declaratively creating a deployment
+```
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 -o yaml --dry-run=client
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 -o yaml --dry-run=client > nginx-deploy.yml
+oc apply -f nginx-deploy.yml
+oc get deploy,rs,po
+```
+
+Expected output
+![deploy](nginx-deploy.png)
+
+## Lab - Declaratively creating an internal clusterip service
+```
+oc expose deploy/nginx -o yaml --dry-run=client
+oc expose deploy/nginx -o yaml --dry-run=client > nginx-clusterip-svc.yml
+oc apply -f nginx-clusterip-svc.yml
+oc get svc
+```
+Expected output
+![service](nginx-svc.png)
+
+## Lab - Declaratively creating an external route with public url
+```
+oc expose svc/nginx -o yaml --dry-run=client
+oc expose svc/nginx -o yaml --dry-run=client > nginx-route.yml
+oc apply -f nginx-route.yml
+oc get route
+```
+Expected output
+![service](nginx-svc.png)
