@@ -117,3 +117,10 @@ These are the chain of things that happens when we issue the above command
 - kubelet on each node keeps monitoring the container status and it keeps reporting their status to API Server via REST calls
 - API Server udpates the status of the Pod as it receives the status from respective kubelet running on each node
 ```
+
+Find more details about deployment,replicaset, pod
+```
+oc describe deploy/nginx
+oc describe rs/nginx-566b5879cb
+oc describe pod/nginx-6b49c75d9-xsh5t
+```
