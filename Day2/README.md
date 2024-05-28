@@ -200,3 +200,12 @@ Expected output
 ![service](nginx-route2.png)
 ![service](nginx-route3.png)
 ![service](nginx-route4.png)
+
+## Lab - Declaratively deleting deployment, service and route
+```
+oc delete -f nginx-deploy.yml
+oc delete -f nginx-clusterip-svc.yml
+oc delete -f nginx-route.yml
+
+oc get deploy,svc,route
+```
