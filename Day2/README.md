@@ -209,3 +209,6 @@ oc delete -f nginx-route.yml
 
 oc get deploy,svc,route
 ```
+
+Expected output
+![delete](delete.png)
