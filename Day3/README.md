@@ -211,3 +211,8 @@ git pull
 cd Day3/configmap-and-secrets
 ./deploy.sh
 ```
+
+## Demo - Install helm package manager
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+```
