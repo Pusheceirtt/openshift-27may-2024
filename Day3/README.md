@@ -143,3 +143,18 @@ cd Day3/persistent-volume/wordpress
 
 Expected output
 ![wordpress](wordpress9.png)
+
+## Lab - Deploying mongodb with external NFS Storage
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/mongodb
+./deploy.sh
+```
+
+Expected output
+![mongodb](mongodb1.png)
+![mongodb](mongodb2.png)
+![mongodb](mongodb3.png)
+![mongodb](mongodb4.png)
+![mongodb](mongodb5.png)
