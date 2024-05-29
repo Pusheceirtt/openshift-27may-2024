@@ -100,7 +100,7 @@ exit
 
 Let's delete the mariadb pod and observe that openshift automatically creates a new pod in the place of the old pod that we deleted.
 
-Try to login to the new mariadb pod
+Try to login to the new mariadb pod, mariadb root password is 'root@123'
 ```
 oc rsh deploy/mariadb
 mysql -u root -p
