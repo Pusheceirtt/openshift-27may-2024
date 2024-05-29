@@ -1,24 +1,22 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  creationTimestamp: null
   labels:
     app: nginx
-  name: nginx
+  name: nginx-rs
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
-  strategy: {}
+      pod-template-hash: rs 
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: nginx
+        pod-template-hash: rs 
     spec:
       containers:
       - image: bitnami/nginx:latest
+        imagePullPolicy: Always
         name: nginx
-        resources: {}
-status: {}
