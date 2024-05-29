@@ -67,3 +67,18 @@ Expected output
 ![mariadb](mariadb1.png)
 ![mariadb](mariadb2.png)
 
+## Lab - Deploying mariadb db server that uses external nfs storage
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume
+oc apply -f pv.yml
+
+oc get pv
+
+oc apply -f pvc.yml
+
+oc get pv,pvc
+oc apply -f mariadb-deploy.yml
+oc get po
+```
