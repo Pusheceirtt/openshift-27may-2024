@@ -204,3 +204,10 @@ cd Day3/persistent-volume/redis
 - the values stored inside the secrets can't be seen by everyone
 </pre>
 
+## Lab - Using ConfigMap and Secrets to store configurable information, retrieve them securely and use it in deployments
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/configmap-and-secrets
+./deploy.sh
+```
