@@ -158,3 +158,14 @@ Expected output
 ![mongodb](mongodb3.png)
 ![mongodb](mongodb4.png)
 ![mongodb](mongodb5.png)
+
+Once you are done with this exercise, you may clean up the mongodb resources
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/mongodb
+./delete-all.sh
+```
+
+Expected output
+![mongodb](mongodb6.png)
