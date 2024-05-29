@@ -113,3 +113,21 @@ SELECT * FROM training;
 The expectation is, you should be able to see the tektutor database with training table. The records we inserted via the previous mariadb pod should be seen intact as we are using an external NFS storage.
 
 ![mariadb](mariadb-deployment.png)
+
+## Lab - Deploying a multi-pod wordpress with mariadb application
+
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/wordpress
+./deploy.sh
+```
+
+Expected output
+![wordpress](wordpress1.png)
+![wordpress](wordpress2.png)
+![wordpress](wordpress3.png)
+![wordpress](wordpress4.png)
+![wordpress](wordpress5.png)
+![wordpress](wordpress6.png)
+![wordpress](wordpress7.png)
