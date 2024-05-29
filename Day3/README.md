@@ -132,3 +132,29 @@ Expected output
 ![wordpress](wordpress6.png)
 ![wordpress](wordpress7.png)
 ![wordpress](wordpress8.png)
+![wordpress](wordpress.png)
+Once you are done with the wordpress lab exercise, you can clean up the resources
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/wordpress
+./delete-all.sh
+```
+
+Expected output
+![wordpress](wordpress9.png)
+
+## Lab - Deploying mongodb with external NFS Storage
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/mongodb
+./deploy.sh
+```
+
+Expected output
+![mongodb](mongodb1.png)
+![mongodb](mongodb2.png)
+![mongodb](mongodb3.png)
+![mongodb](mongodb4.png)
+![mongodb](mongodb5.png)
