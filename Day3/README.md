@@ -132,3 +132,14 @@ Expected output
 ![wordpress](wordpress6.png)
 ![wordpress](wordpress7.png)
 ![wordpress](wordpress8.png)
+
+Once you are done with the wordpress lab exercise, you can clean up the resources
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/wordpress
+./delete-all.sh
+```
+
+Expected output
+![wordpress](wordpress9.png)
