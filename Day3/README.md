@@ -186,3 +186,21 @@ git pull
 cd Day3/persistent-volume/redis
 ./deploy.sh
 ```
+
+## Info - What is ConfigMap?
+<pre>
+- helps storing key/value pairs
+- you could store configuration data
+- environments
+- developers can use it to store any non-sensitive data
+- the values stored inside the configmap can be seen by anyone as it is stored in plain text
+</pre>
+
+## Info - What is Secret?
+<pre>
+- helps storing key/value pairs
+- you could store sensitive data like certificates, login credentials, etc
+- environments
+- the values stored inside the secrets can't be seen by everyone
+</pre>
+
