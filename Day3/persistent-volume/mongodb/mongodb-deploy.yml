@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongdob
+  name: mongdob
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongdob
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: mongdob
+    spec:
+      volumes:
+      - name: mongodb-storage
+        persistentVolumeClaim:
+          claimName: mongodb-pvc-jegan #Replace 'jegan' with your name
+      containers:
+      - image: bitnami/mongodb:latest
+        name: mongodb
+
+        volumeMounts:
+        - name: mongodb-storage
+          mountPath: /bitnami/mongodb
+        
+        env:
+        - name: MONGODB_ROOT_USER
+          value: root
+
+        - name: MONGODB_ROOT_PASSWORD
+          value: root@123
+
