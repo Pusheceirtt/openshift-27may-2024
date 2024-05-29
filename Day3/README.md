@@ -169,3 +169,20 @@ cd Day3/persistent-volume/mongodb
 
 Expected output
 ![mongodb](mongodb6.png)
+
+
+## Lab - Wordpress with mysql database
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/mongodb
+./deploy.sh
+```
+
+## Lab - Deploying redis with persitence volume
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/persistent-volume/redis
+./deploy.sh
+```
