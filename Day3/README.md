@@ -82,3 +82,32 @@ oc get pv,pvc
 oc apply -f mariadb-deploy.yml
 oc get po
 ```
+Getting inside the mariadb pod container shell.  When it prompts for password, type 'root@123' without the quotes.
+```
+oc rsh deploy/mariadb
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training ( id INT NOT NULL, name VARCHAR(200) NOT NULL, duration VARCHAR(200) NOT NULL, PRIMARY KEY(id) );
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "Developing Linux Device Drivers", "5 Days" );
+INSERT INTO training VALUES ( 3, "Advanced OpenShift Administration", "5 Days" );
+SELECT INTO training;
+exit
+exit
+```
+
+Let's delete the mariadb pod and observe that openshift automatically creates a new pod in the place of the old pod that we deleted.
+
+Try to login to the new mariadb pod
+```
+oc rsh deploy/mariadb
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+SHOW TABLES;
+SELECT * FROM training;
+```
+
+The expectation is, you should be able to see the tektutor database with training table. The records we inserted via the previous mariadb pod should be seen intact as we are using an external NFS storage.
