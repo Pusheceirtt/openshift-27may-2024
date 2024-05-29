@@ -132,7 +132,7 @@ Expected output
 ![wordpress](wordpress6.png)
 ![wordpress](wordpress7.png)
 ![wordpress](wordpress8.png)
-
+![wordpress](wordpress.png)
 Once you are done with the wordpress lab exercise, you can clean up the resources
 ```
 cd ~/openshift-27may-2024
