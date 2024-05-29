@@ -112,4 +112,4 @@ SELECT * FROM training;
 
 The expectation is, you should be able to see the tektutor database with training table. The records we inserted via the previous mariadb pod should be seen intact as we are using an external NFS storage.
 
-![mariadb](mariadb deployment.png)
+![mariadb](mariadb-deployment.png)
