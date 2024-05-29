@@ -218,3 +218,25 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scrip
 chmod +x ./get_helm.sh
 ./get_helm.sh
 ```
+
+## Lab - Using helm package manager to package our wordpress multi-pod application and deploy our custom wordpress helm chart
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/helm
+
+helm create wordpress
+cd wordpress/templates
+rm -rf *
+cd ../..
+cp manifest-scripts/*.yml wordpress/templates
+```
+
+Update the wordpress/values.yaml as shown below
+<pre>
+nfs_server_ip: "192.168.1.108" 
+nfs_wordpress_path: /var/nfs/jegan/wordpress 
+nfs_mariadb_path: /var/nfs/jegan/mariadb
+pv_label: jegan  
+</pre>
+
