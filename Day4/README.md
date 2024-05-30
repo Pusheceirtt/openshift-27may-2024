@@ -51,6 +51,25 @@ cd Day4/cronjob
 oc delete -f cronjob.yml
 ```
 
+## Info - What is DeploymentConfig?
+- In older versions of Kubernetes to deploy stateless application we had to use ReplicationController
+- In Red Hat they wanted to support declarative style while scaling and while performing rolling update, hence they add a new type of custom resource in OpenShift called DeploymentConfig
+- ReplicationController supports both Scaling and rolling update, which is not a good design as it does more than one thing ( against SRP SOLID Design Priniciple )
+- DeploymentConfig helps us deploy stateless applications
+- Meanwhile, Google refactored the ReplicationController into two resources
+  - 1. Deployment - which takes care of Rolling update
+    2. ReplicaSet - which takes care of scaling up/down
+- As per SOLID Design Priniciples
+  - S - Single Responsibility Principle (SRP)
+  - O - Open Closed Principle (OCP)
+  - L - Liskov Substitution Principle
+  - I - Interface Seggration
+  - D - Dependency Injection or Dependency Inversion or Inversion of Control (IOC)
+- By the Kubernetes added Deployment & ReplicaSet as an alternate to ReplicationController, the OpenShift team already added Deployment Config
+- In new versions of OpenShift we would see
+  - Deployment & ReplicaSet
+  - DeploymentConfig ( this was introduced in openshift when there was no Deployment & ReplicaSet, hence we should avoid using DeploymentConfig instead we should use Deployment )
+  - ReplicationController ( old kubernetes features now ideally we should use Deployment )
 ## Info - OpenShift Network Model
 
 #### What is Flannel?
