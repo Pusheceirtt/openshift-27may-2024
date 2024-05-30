@@ -205,6 +205,13 @@ NAME    HOST/PORT                                        PATH   SERVICES   PORT 
 nginx   nginx-jegan-devops.apps.ocp4.tektutor.org.labs   nginx      <all>   edge          None
 </pre>
 
+![edge](edge1.png)
+![edge](edge2.png)
+![edge](edge3.png)
+![edge](edge4.png)
+![edge](edge5.png)
+![edge](edge6.png)
+
 ## Lab - Deploying multi-pod PHP application
 
 
