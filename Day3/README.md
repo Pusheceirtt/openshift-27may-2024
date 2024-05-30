@@ -230,13 +230,52 @@ cd wordpress/templates
 rm -rf *
 cd ../..
 cp manifest-scripts/*.yml wordpress/templates
+cp values.yaml wordpress
 ```
 
-Update the wordpress/values.yaml as shown below
+Make sure you values.yaml file looks as shown below
 <pre>
 nfs_server_ip: "192.168.1.108" 
 nfs_wordpress_path: /var/nfs/jegan/wordpress 
 nfs_mariadb_path: /var/nfs/jegan/mariadb
 pv_label: jegan  
 </pre>
+
+Let's create the helm wordpress chart(package)
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day3/helm
+helm package wordpress
+ls -l
+```
+
+Let's install the wordpress helm chart into the Openshift cluster
+```
+helm install wordpress-0.1.0.tgz
+helm list
+```
+
+Expected output
+![helm](helm1.png)
+![helm](helm2.png)
+![helm](helm3.png)
+![helm](helm4.png)
+![helm](helm5.png)
+![helm](helm6.png)
+![helm](helm7.png)
+![helm](helm8.png)
+![helm](helm9.png)
+![helm](helm10.png)
+![helm](helm11.png)
+![helm](helm12.png)
+![helm](helm13.png)
+![helm](helm14.png)
+
+
+
+
+
+
+
 
