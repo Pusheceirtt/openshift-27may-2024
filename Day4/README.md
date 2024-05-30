@@ -70,6 +70,18 @@ oc delete -f cronjob.yml
   - Deployment & ReplicaSet
   - DeploymentConfig ( this was introduced in openshift when there was no Deployment & ReplicaSet, hence we should avoid using DeploymentConfig instead we should use Deployment )
   - ReplicationController ( old kubernetes features now ideally we should use Deployment )
+
+## Lab - Deploying Angular application from OpenShift Webconsole using Developer context
+![angular](angular1.png)
+![angular](angular2.png)
+![angular](angular3.png)
+![angular](angular4.png)
+![angular](angular5.png)
+![angular](angular6.png)
+![angular](angular7.png)
+![angular](angular8.png)
+![angular](angular9.png)
+
 ## Info - OpenShift Network Model
 
 #### What is Flannel?
