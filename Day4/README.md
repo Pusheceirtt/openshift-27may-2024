@@ -74,6 +74,7 @@ oc delete -f cronjob.yml
 ## Lab - Deploying Angular application from OpenShift Webconsole using Developer context
 ![angular](angular1.png)
 ![angular](angular2.png)
+![angular](angular2.5.png)
 ![angular](angular3.png)
 ![angular](angular4.png)
 ![angular](angular5.png)
