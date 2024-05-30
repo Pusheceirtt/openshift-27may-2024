@@ -82,6 +82,17 @@ oc delete -f cronjob.yml
 ![angular](angular8.png)
 ![angular](angular9.png)
 
+## Lab - Deploying ReactJS application in Openshift from webconsole
+![react](react1.png)
+![react](react2.png)
+![react](react3.png)
+![react](react4.png)
+![react](react5.png)
+![react](react6.png)
+![react](react7.png)
+![react](react8.png)
+![react](react9.png)
+
 ## Info - OpenShift Network Model
 
 #### What is Flannel?
