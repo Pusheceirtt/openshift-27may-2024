@@ -14,4 +14,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: {{.Values.nfs_server_ip}} 
-    path: {{nfs_mariadb_path}} 
+    path: {{.Values.nfs_mariadb_path}} 
