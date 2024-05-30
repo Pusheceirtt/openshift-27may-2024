@@ -132,7 +132,7 @@ sudo ln -s /usr/local/lib64/libcrypto.so.3 /usr/lib64/libcrypto.so.3
 sudo ldconfig
 sudo tee /etc/profile.d/openssl.sh<<EOF
 export PATH=/usr/local/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/openssl/lib:/usr/local/openssl/lib64:\$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/openssl/lib:/usr/local/openssl/lib64:$LD_LIBRARY_PATH
 EOF
 
 which openssl
