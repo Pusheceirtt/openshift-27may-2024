@@ -271,6 +271,8 @@ Expected output
 ![helm](helm12.png)
 ![helm](helm13.png)
 ![helm](helm14.png)
+
+Once you are done with this lab exercise, you may delete the wordpress deployment via helm
 ![helm](helm15.png)
 
 
