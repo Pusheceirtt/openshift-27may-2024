@@ -52,6 +52,8 @@ oc logs -f bc/spring-hello
 ## Lab - Create a JFrog Push secret
 ```
 oc create secret docker-registry private-jfrog-image-registry --docker-server=openshiftjegan.jfrog.io --docker-username=your-email-id --docker-password=your-jfrog-token
+
+oc get secrets
 ```
 
 ## Lab - Build and Push Custom Docker Image to JFrog Artifactory using BuildConfig
