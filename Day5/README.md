@@ -135,3 +135,174 @@ Select "pipeline" project
 ![jenkins](jenkins13.png)
 ![jenkins](jenkins14.png)
 ![jenkins](jenkins15.png)
+
+## What does Serverless mean?
+- serverless does not mean the absence of servers
+- is an architecture model for running applications in an environment that is abstracted away from the developers
+- developers can focus more on developing their applications than where their code runs
+- in other deployment models, resources waits idle to serve requests and run regardless of whether there is work to do
+- an ideal serverless workload executes a single task
+- a function that retrieves data from a database can be an excellent serverless workload
+- the database server is not a good serverless workload because it needs to run continuously
+- serverless model is the idea of the cold start
+- when using serverless, there is a period between the request and creating the pod environment. This period is the cold start.
+
+- Examples
+  - OpenShift Serverless workloads follow this workflow:
+    - A request comes in
+    - A pod is spun up to service the request
+    - The pod services the request
+    - The pod is destroyed
+
+  - Another example of a serverless workload can be an image processing function
+     - An event could be a photo upload. The uploaded photo triggers an event to run an application to process the image.
+     - For example, the application may overlay text, create a banner, or make a thumbnail.
+     - Once the image is stored permanently, the application has served its purpose and is no longer needed.
+
+## Serverless Features
+- Stateless Function
+  - a function to query a database and return the data
+  - a function to query weather report and return the data
+  
+- Event Driven
+  - serverless model relies on a trigger to execute the code
+  - could be a request to an API or an event on a queue
+  
+- Auto Scales to Zero
+  - Being able to scale to zero means your code only runs when it needs to respond to an event.
+  - Once the request is served, resources are released.
+
+## Benefits of Serverless
+- cost savings and more efficient utilization of CPU, RAM, and storage resources (better hardware utilizaton in general)
+- Code is executed as needed, there is no idle time. We only pay for the execution time.
+- As there is no servers to manage, no need to worry about Infrastructure management activities like
+  - security updates
+  - montoring
+  - hardware maintenance
+  - hardware upgradation, etc.,
+- Scaling is easier on demand
+- high availability (HA)
+  
+## Knative and Red Hat Serverless 
+
+- Red Hat Serverless is based on Knative project
+- Knative provides a serverless application layer on top of OpenShift/Kubernetes
+- Knative consists of 3 building blocks
+  1. Build
+  2. Eventing
+  3. Serving
+
+
+## Lab - Deploying a knative service
+```
+kn service create hello \
+--image ghcr.io/knative/helloworld-go:latest \
+--port 8080
+--env TARGET=World
+```
+
+Expected output
+![knative](knative1.png)
+
+Accessing the knative application
+```
+curl -k https://hello-jegan.apps.ocp4.tektutor.org.labs
+```
+
+Expected output
+![knative](knative2.png)
+
+
+Update the service
+```
+kn service update hello --env TARGET=Knative
+kn revisions list
+```
+
+Expected output
+![knative](knative3.png)
+
+Splitting the traffic between two revisions
+```
+kn service update hello --traffic hello-00001=50 --traffic @latest=50
+kn revisions list
+```
+
+Expected output
+![knative](knative4.png)
+![knative](knative5.png)
+
+Deleting the knative service
+```
+kn service list
+kn service delete hello
+kn service list
+```
+
+Expected output
+![knative](knative6.png)
+
+## Lab - Knative eventing
+
+Let's deploy a sink service
+```
+oc project jegan
+kn service create eventinghello --concurrency-target=1 --image=quay.io/rhdevelopers/eventinghello:0.0.2
+```
+
+Expected output
+![knative](knative7.png)
+
+Let's create an event source application
+```
+kn source ping create eventinhello-ping-source --schedule="*/2 * * * *" --data '{"message": "Thanks for your message"}' --sink ksvc:eventinghello
+```
+
+Expected output
+![knative](knative8.png)
+![knative](knative9.png)
+![knative](knative10.png)
+![knative](knative11.png)
+![knative](knative12.png)
+
+## Lab - Scheduling 
+
+Let's say our application involves loads of disk read/write, hence our application prefers nodes that has SSD disk.
+- Scheduler will search for nodes that has SSD disks, if the Scheduler is able to find nodes that has SSD disks then the Pods will be
+  deployed onto those nodes that has SSD disks
+- In case the scheduler is not able to find nodes has SSD disk, then it would still deploy the Pods on nodes that doesn't have SSD disks in case your affinitiy type is "Preferred"
+```
+cd ~/openshift-may-2024
+git pull
+cd Day5/scheduling
+oc apply -f nginx-deploy-with-preffered-node-affinity.yml
+oc get po
+oc get po -o wide
+```
+
+Expected output
+![Node Affinity](preferred.png)
+
+Let's delete the preferred Disk affinity scheduling
+```
+cd ~/openshift-may-2024
+git pull
+cd Day5/scheduling
+oc delete -f nginx-deploy-with-preffered-node-affinity.yml
+```
+
+Let's deploy the required Disk affinity scheduling
+```
+cd ~/openshift-may-2024
+git pull
+cd Day5/scheduling
+oc apply -f nginx-deploy-with-required-node-affinity.yml
+```
+Expected output
+![Node Affinity](required.png)
+ 
+## Kindly complete the post-test from RPS Lab Machine
+https://app.mymapit.in/code4/tiny/aHcZd8
+ 
+## Feedback - kindly provide your feedback here
+https://survey.zohopublic.com/zs/3ADHNx
