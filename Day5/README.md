@@ -1,5 +1,43 @@
 # Day 5
 
+## Lab - Buildconfig 
+
+<pre>
+- In this lab exercise, we will create an imagestream to push our custom docker image
+- We will create a buildconfig using Docker strategy
+- Build config with docker strategy will pick the Dockerfile present in our Day5/BuildConfig and starts the application build followed by custom application image build
+- The output of this Buildconfig is a Docker image, which will be pushed to openshift's private registry within our Image stream.
+</pre>
+
+Let's create an image stream
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day5/BuildConfig
+
+oc apply -f imagestream.yml
+oc get imagestreams
+oc get imagestream
+oc get is
+```
+
+Let's create the buildconfig
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day5/BuildConfig
+
+oc apply -f buildconfig.yml
+oc get buildconfigs
+oc get buildconfig
+oc get bc
+
+oc get builds
+oc get build
+
+oc logs -f bc/spring-hello
+```
+
 ## CI/CD
 
 You need to create a trial JFrog Artifactory (14-days Cloud Trial) @ https://jfrog.com/start-free/#trialOptions with your personal gmail account (No credit cards required)
