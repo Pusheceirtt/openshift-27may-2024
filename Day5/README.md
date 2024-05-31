@@ -37,7 +37,7 @@ Let's create the buildconfig
 cd ~/openshift-27may-2024
 git pull
 cd Day5/BuildConfig
-
+oc delete -f buildconfig.yml
 oc apply -f buildconfig.yml
 oc get buildconfigs
 oc get buildconfig
