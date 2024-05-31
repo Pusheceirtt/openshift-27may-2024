@@ -48,7 +48,6 @@ oc get build
 
 oc logs -f bc/spring-hello
 ```
-
 ## Lab - Create a JFrog Push secret
 ```
 oc create secret docker-registry private-jfrog-image-registry --docker-server=openshiftjegan.jfrog.io --docker-username=your-email-id --docker-password=your-jfrog-token
@@ -66,6 +65,13 @@ oc apply -f buildconfig-pushto-artifactory.yml
 oc get bc
 oc logs -f bc/hello
 ```
+
+Expected output
+![buildconfig](buildconfig1.png)
+![buildconfig](buildconfig2.png)
+![buildconfig](buildconfig3.png)
+![buildconfig](buildconfig4.png)
+![buildconfig](buildconfig5.png)
 
 ## CI/CD
 
