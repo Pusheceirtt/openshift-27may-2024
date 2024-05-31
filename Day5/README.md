@@ -300,3 +300,9 @@ oc apply -f nginx-deploy-with-required-node-affinity.yml
 ```
 Expected output
 ![Node Affinity](required.png)
+ 
+## Kindly complete the post-test from RPS Lab Machine
+https://app.mymapit.in/code4/tiny/aHcZd8
+ 
+## Feedback - kindly provide your feedback here
+https://survey.zohopublic.com/zs/3ADHNx
