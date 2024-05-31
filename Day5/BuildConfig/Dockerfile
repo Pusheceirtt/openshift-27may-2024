@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi8/openjdk-17 as builder
-RUN mkdir /home/jboss/myproject
+RUN mkdir -p /home/jboss/myproject/target
 WORKDIR /home/boss/myproject
 COPY pom.xml .
 COPY src .
