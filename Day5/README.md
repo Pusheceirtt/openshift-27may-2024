@@ -54,6 +54,17 @@ oc logs -f bc/spring-hello
 oc create secret docker-registry private-jfrog-image-registry --docker-server=openshiftjegan.jfrog.io --docker-username=your-email-id --docker-password=your-jfrog-token
 ```
 
+## Lab - Build and Push Custom Docker Image to JFrog Artifactory using BuildConfig
+```
+cd ~/openshift-27may-2024
+git pull
+cd Day5/BuildConfig
+
+oc apply -f buildconfig-pushto-artifactory.yml
+oc get bc
+oc logs -f bc/hello
+```
+
 ## CI/CD
 
 You need to create a trial JFrog Artifactory (14-days Cloud Trial) @ https://jfrog.com/start-free/#trialOptions with your personal gmail account (No credit cards required)
