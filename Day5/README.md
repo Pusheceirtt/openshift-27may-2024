@@ -37,7 +37,7 @@ Let's create the buildconfig
 cd ~/openshift-27may-2024
 git pull
 cd Day5/BuildConfig
-
+oc delete -f buildconfig.yml
 oc apply -f buildconfig.yml
 oc get buildconfigs
 oc get buildconfig
@@ -47,6 +47,11 @@ oc get builds
 oc get build
 
 oc logs -f bc/spring-hello
+```
+
+## Lab - Create a JFrog Push secret
+```
+oc create secret docker-registry private-jfrog-image-registry --docker-server=openshiftjegan.jfrog.io --docker-username=your-email-id --docker-password=your-jfrog-token
 ```
 
 ## CI/CD
