@@ -3,6 +3,7 @@
 ## Lab - Buildconfig 
 
 <pre>
+- This is a new feature added in Openshift and not supported in Kubernetes
 - In this lab exercise, we will create an imagestream to push our custom docker image
 - We will create a buildconfig using Docker strategy
 - Build config with docker strategy will pick the Dockerfile present in our Day5/BuildConfig and starts the application build followed by custom application image build
